@@ -1,0 +1,43 @@
+ul {
+  padding-left : 10px;
+  margin: 0;
+
+  li:before {
+    display: inline-block;
+    margin-right: 5px;
+    color: black;
+  }
+
+  &.number-iterator {
+    list-style-type: none;
+    counter-reset: number;
+
+    & > li:before {
+      counter-increment: number;
+      content: counter(number) '.';
+    }
+  }
+
+  &.alpha-iterator {
+    list-style-type: none;
+    counter-reset: alpha;
+
+    & > li:before {
+      counter-increment: alpha;
+      content: counter(alpha, lower-alpha) ')';
+    }
+  }
+
+  &.bullet-iterator {
+    margin-left: 25px;
+  }
+}
+
+[routerlinkactive] {
+  color: blue;
+  cursor: pointer;
+
+  &.active {
+    color: red;
+  }
+}
